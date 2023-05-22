@@ -9,3 +9,5 @@ Rubicon is an order book protocol for Ethereum. Use it to trade ERC-20 tokens wi
 Rubicon is built on Optimism, a low-cost and lightning-fast Ethereum L2 chain.
 
 ![Rubicon_v1_RubiconMarket](https://user-images.githubusercontent.com/17028936/201389403-f1a2f173-67c8-4780-ac2c-775438dfcfcf.png)
+use node 19.8.1
+npm run build

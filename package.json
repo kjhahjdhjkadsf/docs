@@ -25,8 +25,15 @@
 		"tailwindcss": "^3.3.1"
 	},
 	"devDependencies": {
+		"@next/eslint-plugin-next": "^13.4.3",
 		"@tailwindcss/typography": "^0.5.9",
 		"@types/next": "^9.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.59.6",
+		"@typescript-eslint/parser": "^5.59.6",
+		"eslint": "^8.41.0",
+		"eslint-plugin-mdx": "^2.1.0",
+		"eslint-plugin-react": "^7.32.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
 		"webpack": "^4.46.0"
 	}
 }
