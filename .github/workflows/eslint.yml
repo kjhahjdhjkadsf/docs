@@ -31,6 +31,7 @@ jobs:
           npm install eslint --save-dev
 
       - name: check eslint
+        uses: actions/setup-node@v1
         working-directory: ./application
         run: eslint 'pages/**/*.mdx'
         
