@@ -6,7 +6,8 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        'plugin:mdx/recommended'
     ],
     
     "overrides": [
@@ -14,6 +15,7 @@ module.exports = {
             files: '{packages,examples,docs}/**',
             excludedFiles: ['*.md', '*.mdx'],
             extends: [
+              'plugin:mdx/recommended',
               'plugin:react/recommended',
               'plugin:react/jsx-runtime',
               'plugin:react-hooks/recommended',
@@ -21,6 +23,7 @@ module.exports = {
             ],
             rules: {
               'react/prop-types': 'off',
+              "no-unused-expressions": "off",
               'react/no-unknown-property': ['error', { ignore: ['jsx'] }],
               'react-hooks/exhaustive-deps': 'error',
               'react/self-closing-comp': 'error',
