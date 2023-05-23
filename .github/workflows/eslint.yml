@@ -26,6 +26,9 @@ jobs:
       - name: npm install
         run:
           npm i
+      - name: eslint global install
+        run:
+          npm install -g eslint
       - name: eslint install
         run:
           npm install eslint --save-dev
