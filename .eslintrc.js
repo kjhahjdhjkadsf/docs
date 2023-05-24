@@ -11,8 +11,43 @@ module.exports = {
     ],
     
     "overrides": [
+      {
+        files: '**/*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}',
+        extends: [
+          'eslint:recommended',
+          'plugin:@typescript-eslint/recommended',
+          'plugin:import/typescript',
+          'prettier'
+        ],
+        plugins: ['import', 'unicorn'],
+        rules: {
+          'prefer-object-has-own': 'error',
+          'logical-assignment-operators': [
+            'error',
+            'always',
+            { enforceForIfStatements: true }
+          ],
+          '@typescript-eslint/prefer-optional-chain': 'error',
+          'no-else-return': ['error', { allowElseIf: false }],
+          'no-lonely-if': 'error',
+          'prefer-destructuring': [
+            'error',
+            { VariableDeclarator: { object: true } }
+          ],
+          'import/no-duplicates': 'error',
+          'no-negated-condition': 'off',
+          'unicorn/no-negated-condition': 'error',
+          'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
+          'object-shorthand': ['error', 'always'],
+          // todo: enable
+          '@typescript-eslint/no-explicit-any': 'off',
+          '@typescript-eslint/no-non-null-assertion': 'off',
+          '@typescript-eslint/no-var-requires': 'off',
+          '@typescript-eslint/ban-ts-comment': 'off'
+        }
+      },
         {
-            files: '{packages,examples,docs}/**',
+            files: '{pages}/**',
             excludedFiles: ['*.md', '*.mdx'],
             extends: [
               'plugin:mdx/recommended',
@@ -22,7 +57,7 @@ module.exports = {
               'plugin:@next/next/recommended'
             ],
             rules: {
-              'react/prop-types': 'off',
+             'react/prop-types': 'off',
               "no-unused-expressions": "off",
               'react/no-unknown-property': ['error', { ignore: ['jsx'] }],
               'react-hooks/exhaustive-deps': 'error',
@@ -49,6 +84,7 @@ module.exports = {
               ],
               'react/jsx-curly-brace-presence': 'error',
               'react/jsx-boolean-value': 'error'
+              
             },
             settings: {
               react: { version: 'detect' }
@@ -61,8 +97,10 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
     "rules": {
+      "prettier/prettier": "error"
     }
 }
