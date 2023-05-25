@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [19.8.1]
+        node-version: [19.8.1],
         gitToken: "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"
     steps:
     - uses: actions/checkout@v1
