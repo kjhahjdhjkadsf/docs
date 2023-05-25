@@ -7,12 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [19.8.1],
-        gitToken: "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"
+        node-version: [19.8.1]
     steps:
     - uses: actions/checkout@v1
         with:
           fetch-depth: 1
+     - name: Set tocken
+       env:
+       gitToken: "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"
      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -30,7 +32,7 @@ jobs:
           directory: ./.next
           enforce_https: false
           tokens: |
-            {"https://github.com": "${{ matrix.gitToken }}"}
+            {"https://github.com": "${{ env.gitToken }}"}
           ignore_url: |
             http://www.example.com/
             https://en.wikipedia.org/wiki/Main_Page
