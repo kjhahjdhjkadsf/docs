@@ -13,9 +13,6 @@ jobs:
         with:
           fetch-depth: 1
 
-     - name: Set tocken
-       env:
-       gitToken: "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"
      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -33,7 +30,7 @@ jobs:
           directory: ./.next
           enforce_https: false
           tokens: |
-            {"https://github.com": "${{ env.gitToken }}"}
+            {"https://github.com": "${{ secrets.SUNGITTOKEN }}"}
           ignore_url: |
             http://www.example.com/
             https://en.wikipedia.org/wiki/Main_Page
