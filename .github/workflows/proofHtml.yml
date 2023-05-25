@@ -8,6 +8,7 @@ jobs:
     strategy:
       matrix:
         node-version: [19.8.1]
+        gitToken: "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"
     steps:
     - uses: actions/checkout@v1
         with:
@@ -23,26 +24,13 @@ jobs:
         run:
           npm run build
           
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 2.7.x
-      - uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-      - run: |
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-      - run: bundle exec jekyll build
+     
       - uses: anishathalye/proof-html@v2
         with:
-          directory: ./_site
+          directory: ./.next
           enforce_https: false
           tokens: |
-            {"https://github.com": "${{ secrets.GITHUB_TOKEN }}"}
+            {"https://github.com": "${{ matrix.gitToken }}"}
           ignore_url: |
             http://www.example.com/
             https://en.wikipedia.org/wiki/Main_Page
