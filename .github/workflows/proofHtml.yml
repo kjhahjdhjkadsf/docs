@@ -11,13 +11,13 @@ jobs:
     strategy:
       matrix:
         node-version: [19.8.1]
-    
+
     steps:
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
 
-     - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -28,3 +28,16 @@ jobs:
         run:
           npm run build
           
+      - uses: anishathalye/proof-html@v2
+        with:
+          directory: "./.next"
+          enforce_https: false
+          tokens: |
+            {"https://github.com": "${{ secrets.SUNGITTOKEN }}"}
+          ignore_url: |
+            http://www.example.com/
+            https://en.wikipedia.org/wiki/Main_Page
+          ignore_url_re: |
+            ^https://twitter.com/
+          swap_urls: |
+            {"^https://www.anishathalye.com/": "/"}
