@@ -27,6 +27,6 @@ jobs:
       - name: eslint-config-prettier install
         run: npm install --save-dev eslint-config-prettier
       - name: check test mdx page file
-        run: eslint 'pages/testpages/markdown-sample.mdx'
+        run: eslint './pages/testpages/markdown-sample.mdx'
       - name: check eslint
         run: eslint 'pages/**/*.mdx'
