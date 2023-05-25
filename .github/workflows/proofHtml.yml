@@ -2,12 +2,16 @@ name: Proff HTML
 on:
   - push
   - pull_request
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         node-version: [19.8.1]
+    
     steps:
       - uses: actions/checkout@v1
         with:
@@ -27,7 +31,7 @@ jobs:
      
       - uses: anishathalye/proof-html@v2
         with:
-          directory: ./.next
+          directory: "./.next"
           enforce_https: false
           tokens: |
             {"https://github.com": "${{ secrets.SUNGITTOKEN }}"}
