@@ -5,7 +5,7 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended",
+        //"plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
         'plugin:mdx/recommended'
     ],
@@ -51,7 +51,7 @@ module.exports = {
             excludedFiles: ['*.md', '*.mdx'],
             extends: [
               'plugin:mdx/recommended',
-              'plugin:react/recommended',
+            //  'plugin:react/recommended',
               'plugin:react/jsx-runtime',
               'plugin:react-hooks/recommended',
               'plugin:@next/next/recommended'
@@ -91,7 +91,7 @@ module.exports = {
             }
           },
     ],
-    "parser": "@typescript-eslint/parser",
+    //"parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest"
     },
