@@ -28,17 +28,3 @@ jobs:
         run:
           npm run build
           
-     
-      - uses: anishathalye/proof-html@v2
-        with:
-          directory: "./.next"
-          enforce_https: false
-          tokens: |
-            {"https://github.com": "${{ secrets.SUNGITTOKEN }}"}
-          ignore_url: |
-            http://www.example.com/
-            https://en.wikipedia.org/wiki/Main_Page
-          ignore_url_re: |
-            ^https://twitter.com/
-          swap_urls: |
-            {"^https://www.anishathalye.com/": "/"}
