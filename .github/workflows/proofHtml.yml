@@ -35,7 +35,7 @@ jobs:
           tokens: |
             {"https://github.com": "${{ secrets.SUNGITTOKEN }}"}
           ignore_url: |
-            http://www.example.com/
+            https://github.com
             https://en.wikipedia.org/wiki/Main_Page
           ignore_url_re: |
             ^https://twitter.com/
