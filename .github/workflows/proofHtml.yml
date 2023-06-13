@@ -32,6 +32,11 @@ jobs:
         with:
           directory: "./.next"
           enforce_https: false
+          max_concurrency: 50
+          # HTTP connection timeout
+          connect_timeout: 30
+          # HTTP request timeout
+          timeout: 120
           tokens: |
             {"https://github.com": "${{ secrets.SUNGITTOKEN }}"}
           ignore_url: |
